@@ -19,6 +19,7 @@ WORKDIR /data
 
 # Copy the core conversion script (requires LF line endings)
 COPY pandoc-convert.sh /usr/local/bin/
+COPY template/toc-sidebar.html /usr/local/share/pandoc/templates/
 RUN chmod +x /usr/local/bin/pandoc-convert.sh
 
 # Set the entrypoint to the core conversion script
