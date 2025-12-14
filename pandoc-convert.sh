@@ -23,6 +23,7 @@ if [ $# -eq 1 ]; then
         --standalone \
         --toc \
         --toc-depth=6 \
+        --number-sections \
         --template=toc-sidebar.html \
         --filter pandoc-plantuml-filter \
         --syntax-highlighting=pygments \
