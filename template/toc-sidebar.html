@@ -14,7 +14,7 @@
     <style type="text/css">
         /* Pandocのコードブロック用のスタイル */
         code { white-space: pre; }
-        
+
         /* ---------------------------------- */
         /* レイアウト修正 (固定スクロール対応) */
         /* ---------------------------------- */
@@ -22,13 +22,13 @@
 
         /* サイドバーの設定: position: fixed でビューポートに固定 */
         .sidebar-toc {
-            position: fixed; 
-            top: 56px;       
+            position: fixed;
+            top: 56px;
             left: 0;
-            bottom: 0;       
+            bottom: 0;
             z-index: 1000;
             padding: 1rem;
-            overflow-y: auto; 
+            overflow-y: auto;
             flex-shrink: 0;
             transition: none;
         }
@@ -38,7 +38,7 @@
             width: 6px;
             cursor: ew-resize;
             background-color: #ccc;
-            position: fixed; 
+            position: fixed;
             top: 56px;
             height: calc(100vh - 56px);
             z-index: 1001;
@@ -81,12 +81,12 @@
         .toc a:hover {
             color: #0d6efd;
         }
-        
+
         /* サブリストのインデントをリセットし、親要素に依存させる */
-        .toc ul { 
-            list-style: none; 
-            padding-left: 15px; 
-            margin-bottom: 0; 
+        .toc ul {
+            list-style: none;
+            padding-left: 15px;
+            margin-bottom: 0;
         }
 
         /* 折りたたみボタン付きアイテムのスタイル */
@@ -106,23 +106,23 @@
         .toc-toggle-btn:hover {
             color: #0d6efd;
         }
-        
+
         /* -------------------------------------------- */
         /* 見出しの視覚的改善とアンカーオフセットの解決 */
         /* -------------------------------------------- */
         .main-content h1, .main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6 {
-            font-size: 1.5rem; 
-            font-weight: 600; 
-            background-color: #f8f9fa; 
-            border-left: 5px solid #0d6efd; 
-            padding: 0.5rem 1rem; 
+            font-size: 1.5rem;
+            font-weight: 600;
+            background-color: #f8f9fa;
+            border-left: 5px solid #0d6efd;
+            padding: 0.5rem 1rem;
             margin-top: 2rem;
             margin-bottom: 1rem;
-            border-radius: 0 5px 5px 0; 
-            scroll-margin-top: 70px; 
+            border-radius: 0 5px 5px 0;
+            scroll-margin-top: 70px;
         }
     </style>
-    
+
     $for(header-includes)$
     $header-includes$
     $endfor$
@@ -164,7 +164,7 @@
             $endif$
         </div>
     </nav>
-    
+
     <div id="splitter" class="splitter d-none d-lg-block"></div>
 
     <main id="main-content" class="main-content" role="main">
@@ -181,8 +181,8 @@
     <script>
         const sidebar = document.getElementById('toc-sidebar');
         const splitter = document.getElementById('splitter');
-        const mainContent = document.getElementById('main-content'); 
-        const tocContainer = document.getElementById('toc'); 
+        const mainContent = document.getElementById('main-content');
+        const tocContainer = document.getElementById('toc');
 
         let isDragging = false;
         const MIN_WIDTH = 200;
@@ -193,13 +193,13 @@
         function updateLayout(width) {
             // Pandocエラー回避のため配列結合を使用
             sidebar.style.width = [width, 'px'].join('');
-            splitter.style.left = [width, 'px'].join(''); 
-            mainContent.style.marginLeft = [width, 'px'].join(''); 
+            splitter.style.left = [width, 'px'].join('');
+            mainContent.style.marginLeft = [width, 'px'].join('');
         }
 
         // 初期幅の設定
         function initializeLayout() {
-            if (window.innerWidth >= 992) { 
+            if (window.innerWidth >= 992) {
                 updateLayout(INITIAL_WIDTH);
             }
         }
@@ -210,7 +210,7 @@
 
         splitter.addEventListener('mousedown', (e) => {
             if (window.innerWidth < 992) return;
-            e.preventDefault(); 
+            e.preventDefault();
             isDragging = true;
             document.body.style.userSelect = 'none';
             document.body.style.cursor = 'ew-resize';
@@ -224,7 +224,7 @@
 
         document.addEventListener('mousemove', (e) => {
             if (!isDragging) return;
-            
+
             const newWidth = e.clientX;
 
             if (newWidth >= MIN_WIDTH && newWidth <= MAX_WIDTH) {
@@ -235,12 +235,12 @@
         /* ---------------------------------- */
         /* 目次折りたたみ機能の追加 (H2展開初期設定) */
         /* ---------------------------------- */
-        let tocIdCounter = 0; 
+        let tocIdCounter = 0;
 
         function applyTocCollapse(container) {
             const listItems = container.querySelectorAll('li');
             // 目次コンテナ内の最初のUL（H1レベルのリストを格納）を取得
-            const firstUL = container.querySelector('ul'); 
+            const firstUL = container.querySelector('ul');
 
             listItems.forEach(li => {
                 const sublist = li.querySelector('ul');
@@ -248,13 +248,13 @@
 
                 if (sublist && link) {
                     // liの親が最初のUL（H1リスト）であれば、その子リスト（H2）を展開する
-                    const isH1Item = li.parentNode === firstUL; 
-                    const shouldBeExpanded = isH1Item; 
-                    
+                    const isH1Item = li.parentNode === firstUL;
+                    const shouldBeExpanded = isH1Item;
+
                     tocIdCounter++;
                     const sublistId = ['toc-collapse-', tocIdCounter].join('');
                     sublist.id = sublistId;
-                    
+
                     if (shouldBeExpanded) {
                         sublist.classList.add('show'); // H2レベルは 'show' で初期展開
                     } else {
@@ -275,7 +275,7 @@
                     // ARIA属性を初期状態に合わせる
                     toggleButton.setAttribute('aria-expanded', shouldBeExpanded ? 'true' : 'false');
                     toggleButton.setAttribute('aria-controls', sublistId);
-                    
+
                     // アイコンを初期状態に合わせる
                     const initialIconClass = shouldBeExpanded ? 'bi-chevron-down' : 'bi-chevron-right';
                     toggleButton.innerHTML = ['<i class="bi ', initialIconClass, '"></i>'].join('');
@@ -302,9 +302,15 @@
 
         // Highlight.jsの初期化
         hljs.highlightAll();
+
+        // tableタグにBootstrapクラスを追加
+        const tables = document.querySelectorAll('table');
+        tables.forEach(table => {
+            table.classList.add('table', 'table-striped', 'table-hover');
+        });
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    
+
 </body>
 </html>
