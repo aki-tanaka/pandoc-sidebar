@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="$lang$" xml:lang="$lang$"$if(dir)$ dir=\"$dir$\"$endif$>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
     <meta charset="utf-8" />
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    $if(title)$<title>$title$</title>$endif$
+    <title>ドキュメント生成機能 検証テスト</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.8.1/github-markdown.min.css" rel="stylesheet">
@@ -13,7 +13,6 @@
 
     <style type="text/css">
         /* Pandocのコードブロック用のスタイル */
-        code { white-space: pre; }
         p code {
             white-space: pre;
             background-color: #24292f;
@@ -131,15 +130,13 @@
         }
     </style>
 
-    $for(header-includes)$
-    $header-includes$
-    $endfor$
-</head>
+    </head>
 <body data-bs-spy="scroll" data-bs-target="#toc-sidebar">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">$if(title)$$title$$else$文書タイトル$endif$</a>
+            <a class="navbar-brand" href="#">ドキュメント生成機能
+検証テスト</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -148,23 +145,116 @@
 
     <nav id="toc-sidebar" class="sidebar-toc bg-light shadow-sm d-none d-lg-block">
         <div id="toc" class="toc">
-            $if(toc)$
-            $toc$
-            $endif$
-            $if(toc)$
-            $else$
-            <p class="text-muted">目次はPandocの `--toc` オプションで生成されます。</p>
-            $endif$
-        </div>
+                        <ul>
+                        <li><a href="#ドキュメント生成機能-検証テスト"
+                        id="toc-ドキュメント生成機能-検証テスト"><span
+                        class="toc-section-number">1</span> 🚀
+                        ドキュメント生成機能 検証テスト</a>
+                        <ul>
+                        <li><a href="#見出しレベルの検証"
+                        id="toc-見出しレベルの検証"><span
+                        class="toc-section-number">1.1</span>
+                        見出しレベルの検証</a>
+                        <ul>
+                        <li><a href="#level-3" id="toc-level-3"><span
+                        class="toc-section-number">1.1.1</span> Level
+                        3</a>
+                        <ul>
+                        <li><a href="#level-4" id="toc-level-4"><span
+                        class="toc-section-number">1.1.1.1</span> Level
+                        4</a>
+                        <ul>
+                        <li><a href="#level-5" id="toc-level-5"><span
+                        class="toc-section-number">1.1.1.1.1</span>
+                        Level 5</a>
+                        <ul>
+                        <li><a href="#level-6" id="toc-level-6"><span
+                        class="toc-section-number">1.1.1.1.1.1</span>
+                        Level 6</a></li>
+                        <li><a
+                        href="#level-7-html変換後に正しく表示されるか確認"
+                        id="toc-level-7-html変換後に正しく表示されるか確認"><span
+                        class="toc-section-number">1.1.1.1.1.2</span>
+                        Level 7
+                        (HTML変換後に正しく表示されるか確認)</a></li>
+                        </ul></li>
+                        </ul></li>
+                        </ul></li>
+                        </ul></li>
+                        <li><a href="#日本語とテキスト装飾の検証"
+                        id="toc-日本語とテキスト装飾の検証"><span
+                        class="toc-section-number">1.2</span>
+                        日本語とテキスト装飾の検証</a></li>
+                        <li><a href="#コードサンプル"
+                        id="toc-コードサンプル"><span
+                        class="toc-section-number">1.3</span>
+                        コードサンプル</a></li>
+                        </ul></li>
+                        </ul>
+                                            </div>
     </nav>
 
     <div id="splitter" class="splitter d-none d-lg-block"></div>
 
     <main id="main-content" class="main-content" role="main">
         <div class="container-fluid">
-            $body$
+            <h1 data-number="1"
+            id="ドキュメント生成機能-検証テスト"><span
+            class="header-section-number">1</span> 🚀
+            ドキュメント生成機能 検証テスト</h1>
+            <blockquote>
+            <p>このドキュメントは、Pandoc変換機能（日本語対応、目次生成、GitHubスタイル、PlantUML/Mermaid対応）の動作検証のために作成されました。</p>
+            </blockquote>
+            <hr />
+            <h2 data-number="1.1" id="見出しレベルの検証"><span
+            class="header-section-number">1.1</span>
+            見出しレベルの検証</h2>
+            <h3 data-number="1.1.1" id="level-3"><span
+            class="header-section-number">1.1.1</span> Level 3</h3>
+            <h4 data-number="1.1.1.1" id="level-4"><span
+            class="header-section-number">1.1.1.1</span> Level 4</h4>
+            <h5 data-number="1.1.1.1.1" id="level-5"><span
+            class="header-section-number">1.1.1.1.1</span> Level 5</h5>
+            <h6 data-number="1.1.1.1.1.1" id="level-6"><span
+            class="header-section-number">1.1.1.1.1.1</span> Level
+            6</h6>
+            <h6 data-number="1.1.1.1.1.2"
+            id="level-7-html変換後に正しく表示されるか確認"><span
+            class="header-section-number">1.1.1.1.1.2</span> Level 7
+            (HTML変換後に正しく表示されるか確認)</h6>
+            <hr />
+            <h2 data-number="1.2" id="日本語とテキスト装飾の検証"><span
+            class="header-section-number">1.2</span>
+            日本語とテキスト装飾の検証</h2>
+            <p>標準的な日本語テキストと、各種Markdown記法が正しく処理されるか確認します。</p>
+            <p>これは<strong>太字</strong>のテキストです。
+            これは<em>斜体</em>のテキストです。
+            これは<del>打ち消し線</del>のテキストです。</p>
+            <p>リストも検証します: * アイテム1 (日本語) * アイテム2
+            (PlantUMLの次) * サブアイテム (Mermaidの前)</p>
+            <hr />
+            <h2 data-number="1.3" id="コードサンプル"><span
+            class="header-section-number">1.3</span> コードサンプル</h2>
+            <p>コードのサンプルです。</p>
+            <div class="sourceCode" id="cb1"><pre
+            class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Sample <span class="op">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">public</span> stati <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">&quot;sample code.&quot;</span><span class="op">);</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+            <pre class="http"><code>POST http://localhost:8001/api/post HTTP/1.1
+content-type: application/json
+Accept: application/json
+
+{
+    &quot;user_id&quot;: &quot;1&quot;,
+    &quot;title&quot;: &quot;title&quot;,
+    &quot;body&quot;: &quot;body&quot;,
+    &quot;status&quot;: &quot;2&quot;
+}</code></pre>
+            <p>コードスパン<code>sample</code> のサンプルです。</p>
             <footer class="mt-5 pt-3 border-top text-muted text-center">
-                <p>Generated by Pandoc. $if(date)$$date$$endif$</p>
+                <p>Generated by Pandoc. </p>
             </footer>
         </div>
     </main>
@@ -174,8 +264,8 @@
     <script>
         const sidebar = document.getElementById('toc-sidebar');
         const splitter = document.getElementById('splitter');
-        const mainContent = document.getElementById('main-content');
-        const tocContainer = document.getElementById('toc');
+        const mainContent = document.getElementById('main-content'); 
+        const tocContainer = document.getElementById('toc'); 
 
         let isDragging = false;
         const MIN_WIDTH = 200;
@@ -186,8 +276,8 @@
         function updateLayout(width) {
             // Pandocエラー回避のため配列結合を使用
             sidebar.style.width = [width, 'px'].join('');
-            splitter.style.left = [width, 'px'].join('');
-            mainContent.style.marginLeft = [width, 'px'].join('');
+            splitter.style.left = [width, 'px'].join(''); 
+            mainContent.style.marginLeft = [width, 'px'].join(''); 
         }
 
         // 初期幅の設定
@@ -295,12 +385,6 @@
 
         // Highlight.jsの初期化
         hljs.highlightAll();
-
-        // tableタグにBootstrapクラスを追加
-        const tables = document.querySelectorAll('table');
-        tables.forEach(table => {
-            table.classList.add('table', 'table-striped', 'table-hover');
-        });
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
