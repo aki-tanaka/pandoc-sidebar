@@ -13,6 +13,7 @@
 
     <style type="text/css">
         /* Pandocのコードブロック用のスタイル */
+        code { white-space: pre; }
         p code {
             white-space: pre;
             background-color: #24292f;
@@ -173,8 +174,8 @@
     <script>
         const sidebar = document.getElementById('toc-sidebar');
         const splitter = document.getElementById('splitter');
-        const mainContent = document.getElementById('main-content'); 
-        const tocContainer = document.getElementById('toc'); 
+        const mainContent = document.getElementById('main-content');
+        const tocContainer = document.getElementById('toc');
 
         let isDragging = false;
         const MIN_WIDTH = 200;
@@ -185,8 +186,8 @@
         function updateLayout(width) {
             // Pandocエラー回避のため配列結合を使用
             sidebar.style.width = [width, 'px'].join('');
-            splitter.style.left = [width, 'px'].join(''); 
-            mainContent.style.marginLeft = [width, 'px'].join(''); 
+            splitter.style.left = [width, 'px'].join('');
+            mainContent.style.marginLeft = [width, 'px'].join('');
         }
 
         // 初期幅の設定
@@ -294,6 +295,12 @@
 
         // Highlight.jsの初期化
         hljs.highlightAll();
+
+        // tableタグにBootstrapクラスを追加
+        const tables = document.querySelectorAll('table');
+        tables.forEach(table => {
+            table.classList.add('table', 'table-striped', 'table-hover');
+        });
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
